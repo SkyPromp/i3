@@ -225,4 +225,8 @@ exec --no-startup-id xset m 1
 # Clear background
 exec --no-startup-id xsetroot -solid '#131313'
 
+# Set window border thickness
+default_border pixel 1
 
+# Stop mouse from moving when clicking on a link
+mouse_warping none
