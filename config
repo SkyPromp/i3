@@ -36,9 +36,10 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
+# set $refresh_i3status killall -SIGUSR1 i3status
+set $refresh_i3status killall -SIGUSR1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3% && pactl set-sink-volume @DEFAULT_SINK@ 100% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -51,7 +52,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec konsole --hold -e bash
+bindsym $mod+Return exec alacritty --hold -e bash
 
 # kill focused window
 bindsym $mod+q kill
@@ -208,9 +209,10 @@ exec --no-startup-id xset -dpms
 exec numlockx on
 
 # Put displayport 0 to 240Hz and 1080p
-exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 240
+# exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 240
 # Put DP-0 right of DP-2
-exec --no-startup-id xrandr --output DP-0 --right-of DP-2
+# exec --no-startup-id xrandr --output DP-0 --right-of DP-2
+exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 240 --right-of DP-2
 
 # Disable mouse acceleration
 exec --no-startup-id xset m 1
