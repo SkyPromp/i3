@@ -61,6 +61,7 @@ bindsym $mod+Return exec alacritty --hold -e bash
 
 # kill focused window
 bindsym $mod+q kill
+bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+e exec --no-startup-id dmenu_run
@@ -230,3 +231,6 @@ default_border pixel 1
 
 # Stop mouse from moving when clicking on a link
 mouse_warping none
+
+# Setup so that dolphin can find dualbooted drives
+exec --no-startup-id /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
