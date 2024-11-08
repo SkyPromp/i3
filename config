@@ -234,3 +234,6 @@ mouse_warping none
 
 # Setup so that dolphin can find dualbooted drives
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
+
+# Activate custom keybindings
+exec --no-startup-id xmodmap ~/.Xmodmap
